@@ -1,6 +1,6 @@
 {
   "name": "array-nest",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Converts an array of items to a tree of nested elements in an efficient way, works in both browser and node",
   "main": "dist/index.js",
   "scripts": {
