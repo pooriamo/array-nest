@@ -1,7 +1,7 @@
 {
   "name": "array-nest",
   "version": "1.0.2",
-  "description": "Converts an array of items to a tree in an efficient way",
+  "description": "Converts an array of items to a tree of nested elements in an efficient way, works in both browser and node",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run lint && babel ./src -d ./dist",
