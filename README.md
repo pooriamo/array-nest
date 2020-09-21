@@ -27,7 +27,7 @@ console.log(tree);
 [
   {
     id: 1,
-    parent_id: rootParentsId,
+    parent_id: null,
     name: 'A',
     children: [
       {
@@ -53,7 +53,7 @@ console.log(tree);
   },
   {
     id: 4,
-    parent_id: rootParentsId,
+    parent_id: null,
     name: 'D',
     children: [
       {
