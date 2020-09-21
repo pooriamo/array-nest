@@ -1,5 +1,5 @@
 {
-  "name": "nest-arrays",
+  "name": "array-nest",
   "version": "1.0.0",
   "description": "Converts an array of items to a tree in an efficient way",
   "main": "dist/index.js",

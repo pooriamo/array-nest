@@ -15,7 +15,7 @@ var defaultOptions = {
   rootParentsId: null
 };
 
-var unflatten = function unflatten(array) {
+var nest = function nest(array) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   var _defaultOptions$optio = _extends({}, defaultOptions, options),
@@ -53,4 +53,4 @@ var unflatten = function unflatten(array) {
   return buildTree(ROOT_PARENTS_ID);
 };
 
-exports.default = unflatten;
+exports.default = nest;

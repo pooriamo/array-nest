@@ -5,7 +5,7 @@ const defaultOptions = {
   rootParentsId: null,
 };
 
-const unflatten = function unflatten(array, options = {}) {
+const nest = function nest(array, options = {}) {
   const {
     idKey: ID_KEY,
     parentKey: PARENT_KEY,
@@ -42,4 +42,4 @@ const unflatten = function unflatten(array, options = {}) {
   return buildTree(ROOT_PARENTS_ID);
 };
 
-export default unflatten;
+export default nest;

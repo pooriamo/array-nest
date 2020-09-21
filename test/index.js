@@ -1,5 +1,5 @@
 import assert from 'assert';
-import unflatten from '../src';
+import nest from '../src';
 
 function generateSampleArray(
   idKey = 'id',
@@ -73,11 +73,11 @@ function generateExpectedTree(
   ];
 }
 
-describe('unflatten', () => {
+describe('nest', () => {
   it('convert a one dimentional array to a tree', () => {
     const testArray = generateSampleArray();
 
-    const tree = unflatten(testArray);
+    const tree = nest(testArray);
 
     const expectedTree = generateExpectedTree();
 
@@ -87,7 +87,7 @@ describe('unflatten', () => {
   it('use different options', () => {
     const testArray = generateSampleArray('customId', 'parent', 0);
 
-    const tree = unflatten(testArray, {
+    const tree = nest(testArray, {
       idKey: 'customId',
       parentKey: 'parent',
       childrenKey: 'subtree',
@@ -101,14 +101,14 @@ describe('unflatten', () => {
 
   it('get illegal input', () => {
     assert.throws(() => {
-      unflatten(false);
+      nest(false);
     }, {
       name: 'TypeError',
       message: 'The input must be an array.',
     });
 
     assert.throws(() => {
-      unflatten(['a']);
+      nest(['a']);
     }, {
       name: 'TypeError',
       message: 'Found an element with no \'id\' key',
