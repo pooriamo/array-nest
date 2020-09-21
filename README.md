@@ -1,14 +1,14 @@
 This small package converts a one dimensional array into a tree based on the elements' relationship in an efficient way ( O(n) ).
 
 The usage is:
-`unflatten(array: array, options?: {})`
+`nest(array: array, options?: {})`
 
 #### Example:
 
 ```
-import unflatten from 'unflatten';
+import nest from 'array-nest';
 
-const tree = unflatten([
+const tree = nest([
   { id: 1, parent_id: null, name: 'A' },
   { id: 2, parent_id: 1, name: 'B' },
   { id: 3, parent_id: 2, name: 'C' },
