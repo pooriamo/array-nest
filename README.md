@@ -1,4 +1,11 @@
-This small package converts a one dimensional array into a tree based on the elements' relationship in an efficient way ( O(n) ).
+This small package converts a one dimensional array into a tree based on the elements' relationship in an efficient way with "O(n)".
+
+#### Installation:
+```
+npm install array-nest
+// OR
+yarn add array-nest
+```
 
 The usage is:
 `nest(array: array, options?: {})`
