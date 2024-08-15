@@ -1,6 +1,6 @@
-This small package converts a one dimensional array into a tree based on the elements' relationship in an efficient way with "O(n)".
+This small package converts a one dimensional array into a tree based on the elements' relationship in an efficient way.
 
-#### Installation:
+### Installation:
 ```
 npm install array-nest
 // OR
@@ -8,11 +8,11 @@ yarn add array-nest
 ```
 
 The usage is:
-`nest(array: array, options?: {})`
+`nest(array, options)`
 
-#### Example:
+### Example:
 
-```
+```ts
 import nest from 'array-nest';
 
 const tree = nest([
@@ -28,8 +28,8 @@ const tree = nest([
 console.log(tree);
 ```
 
-#### The expected result:
-```
+#### The result:
+```ts
 
 [
   {
@@ -81,9 +81,29 @@ console.log(tree);
 ]
 ```
 
-Supported `options` parameters:
+### Overriding the default values:
+```ts
+import nest from 'array-nest';
 
-- __idKey__: What is the equivalent `id` identifier in the input array. _default: 'id'_ 
-- __parentKey__: What is the equivalent `parent_id` identifier in the input array. _default: 'parent_id'_
-- __childrenKey__: What should the `children` property be named in the resulting array. _default: 'children'_
-- __rootParentsId__: What is the `id` of the root entries (The entries which have no parents themselves) _default: null_
+const tree = nest([
+  { code: 1, parent_code: '', name: 'A' },
+  { code: 2, parent_code: 1, name: 'B' },
+  { code: 3, parent_code: 2, name: 'C' },
+  { code: 4, parent_code: '', name: 'D' },
+  { code: 5, parent_code: 1, name: 'E' },
+  { code: 6, parent_code: 4, name: 'F' },
+  { code: 7, parent_code: 6, name: 'G' },
+], {
+  idKey: 'code',
+  parentKey: 'parent_code',
+  rootParentsId: '',
+  childrenKey: 'subtree'
+});
+```
+
+### Supported `options`:
+
+- __idKey__: The equivalent of `id` key in the input array. _default: 'id'_
+- __parentKey__: The equivalent of `parent_id` key in the input array. _default: 'parent_id'_
+- __childrenKey__: What the nested property should be named in the resulting array. _default: 'children'_
+- __rootParentsId__: The `id` of the root entries (The entries which have no parents themselves) _default: null_
