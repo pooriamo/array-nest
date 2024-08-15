@@ -1,10 +1,9 @@
-import assert from 'assert';
-import nest from '../src';
+import nest from './index';
 
 function generateSampleArray(
   idKey = 'id',
   parentIdKey = 'parent_id',
-  rootParentsId = null,
+  rootParentsId: number | null = null,
 ) {
   return [
     { [idKey]: 1, [parentIdKey]: rootParentsId, name: 'A' },
@@ -21,7 +20,7 @@ function generateExpectedTree(
   idKey = 'id',
   parentIdKey = 'parent_id',
   childrenKey = 'children',
-  rootParentsId = null,
+  rootParentsId: number | null = null,
 ) {
   return [
     {
@@ -81,7 +80,7 @@ describe('nest', () => {
 
     const expectedTree = generateExpectedTree();
 
-    assert.deepStrictEqual(tree, expectedTree);
+    expect(tree).toEqual(expectedTree);
   });
 
   it('use different options', () => {
@@ -96,22 +95,18 @@ describe('nest', () => {
 
     const expectedTree = generateExpectedTree('customId', 'parent', 'subtree', 0);
 
-    assert.deepStrictEqual(tree, expectedTree);
+    expect(tree).toEqual(expectedTree);
   });
 
   it('get illegal input', () => {
-    assert.throws(() => {
-      nest(false);
-    }, {
+    expect(() => nest(false as any)).toThrow({
       name: 'TypeError',
       message: 'The input must be an array.',
     });
 
-    assert.throws(() => {
-      nest(['a']);
-    }, {
+    expect(() => nest(['a' as any])).toThrow({
       name: 'TypeError',
-      message: 'Found an element with no \'id\' key',
+      message: 'The item must have an \'id\' key',
     });
   });
 });
